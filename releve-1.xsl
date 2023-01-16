@@ -13,9 +13,9 @@
                         <li>Date releve : <xsl:value-of select="dateReleve"/>  </li>
                         <li>Solde       : <xsl:value-of select="solde"/>  </li>
                     </ul>
-                    <h3> Details des operation bancaires</h3>
+                  
                     <xsl:for-each select="operations">
-                         Extrarit du compte Du : <xsl:value-of select="@dateDebut"/> A <xsl:value-of select="@dateFin"/>
+                        <h3> Extrarit du compte Du : <xsl:value-of select="@dateDebut"/> A <xsl:value-of select="@dateFin"/></h3>
                         <table border="1" width="50%">
                             <tr>
                                 <th>Date</th> <th>Description</th> <th>Debit</th> <th>Credit</th>
@@ -37,13 +37,13 @@
                                 </tr>
                             </xsl:for-each>
                             <tr>
-                                <td colspan="2">Total</td>
-                                <td>
-                                    <xsl:value-of select="sum(operations/operation[@type='DEBIT']/@montant)"/>
-                                </td>
-                                <td>
-                                    <xsl:value-of select="sum(operations/operation[@type='CREDIT']/@montant)"/>
-                                </td>
+                                <th colspan="2">Total</th>
+                                <th> 
+                                    <xsl:value-of select="sum(operation[@type='DEBIT']/@montant)"/>
+                                </th>
+                                <th>
+                                    <xsl:value-of select="sum(operation[@type='CREDIT']/@montant)"/>
+                                </th>
                             </tr>
                         </table>
                     </xsl:for-each>

@@ -7,7 +7,7 @@
     <operations dateDebut="2021-01-01" dateFin="2021-01-30">
         <operation type="CREDIT" date="2021-01-01" montant="9000" description="Vers Espèce"/>
         <operation type="DEBIT" date="2021-01-11" montant="3400" description="Chèque Guichet"/>
-        <operation type="CREDIT" date="2021-01-15" montant="120" description="Prélèvement Assurence"/>
-        <operation type="DEBIT" date="2021-01-25" montant="70000" description="Virement"/>
+        <operation type="DEBIT" date="2021-01-15" montant="120" description="Prélèvement Assurence"/>
+        <operation type="CREDIT" date="2021-01-25" montant="70000" description="Virement"/>
     </operations>
 </releve>
