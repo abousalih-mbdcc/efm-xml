@@ -10,7 +10,7 @@ import pojo.Releve;
 import java.io.File;
 
 @WebService(serviceName = "ReleveWS")
-public class ReleveWS {
+public class ReleveService {
 
     @WebMethod
     public Releve getReleve() throws JAXBException {

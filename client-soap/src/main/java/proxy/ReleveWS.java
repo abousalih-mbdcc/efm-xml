@@ -1,14 +1,14 @@
 
 package proxy;
 
-import jakarta.jws.WebMethod;
-import jakarta.jws.WebResult;
-import jakarta.jws.WebService;
-import jakarta.xml.bind.annotation.XmlSeeAlso;
-import jakarta.xml.ws.Action;
-import jakarta.xml.ws.FaultAction;
-import jakarta.xml.ws.RequestWrapper;
-import jakarta.xml.ws.ResponseWrapper;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.namespace.QName;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceFeature;
 
 
 /**
@@ -17,28 +17,78 @@ import jakarta.xml.ws.ResponseWrapper;
  * Generated source version: 3.0
  * 
  */
-@WebService(name = "ReleveWS", targetNamespace = "http://ws/")
-@XmlSeeAlso({
-    ObjectFactory.class
-})
-public interface ReleveWS {
+@WebServiceClient(name = "ReleveWS", targetNamespace = "http://ws/", wsdlLocation = "http://localhost:9494/?wsdl")
+public class ReleveWS
+    extends Service
+{
 
+    private final static URL RELEVEWS_WSDL_LOCATION;
+    private final static WebServiceException RELEVEWS_EXCEPTION;
+    private final static QName RELEVEWS_QNAME = new QName("http://ws/", "ReleveWS");
+
+    static {
+        URL url = null;
+        WebServiceException e = null;
+        try {
+            url = new URL("http://localhost:9494/?wsdl");
+        } catch (MalformedURLException ex) {
+            e = new WebServiceException(ex);
+        }
+        RELEVEWS_WSDL_LOCATION = url;
+        RELEVEWS_EXCEPTION = e;
+    }
+
+    public ReleveWS() {
+        super(__getWsdlLocation(), RELEVEWS_QNAME);
+    }
+
+    public ReleveWS(WebServiceFeature... features) {
+        super(__getWsdlLocation(), RELEVEWS_QNAME, features);
+    }
+
+    public ReleveWS(URL wsdlLocation) {
+        super(wsdlLocation, RELEVEWS_QNAME);
+    }
+
+    public ReleveWS(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, RELEVEWS_QNAME, features);
+    }
+
+    public ReleveWS(URL wsdlLocation, QName serviceName) {
+        super(wsdlLocation, serviceName);
+    }
+
+    public ReleveWS(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+        super(wsdlLocation, serviceName, features);
+    }
 
     /**
      * 
      * @return
-     *     returns proxy.Releve
-     * @throws JAXBException_Exception
+     *     returns ReleveService
      */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getReleve", targetNamespace = "http://ws/", className = "proxy.GetReleve")
-    @ResponseWrapper(localName = "getReleveResponse", targetNamespace = "http://ws/", className = "proxy.GetReleveResponse")
-    @Action(input = "http://ws/ReleveWS/getReleveRequest", output = "http://ws/ReleveWS/getReleveResponse", fault = {
-        @FaultAction(className = JAXBException_Exception.class, value = "http://ws/ReleveWS/getReleve/Fault/JAXBException")
-    })
-    public Releve getReleve()
-        throws JAXBException_Exception
-    ;
+    @WebEndpoint(name = "ReleveServicePort")
+    public ReleveService getReleveServicePort() {
+        return super.getPort(new QName("http://ws/", "ReleveServicePort"), ReleveService.class);
+    }
+
+    /**
+     * 
+     * @param features
+     *     A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @return
+     *     returns ReleveService
+     */
+    @WebEndpoint(name = "ReleveServicePort")
+    public ReleveService getReleveServicePort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://ws/", "ReleveServicePort"), ReleveService.class, features);
+    }
+
+    private static URL __getWsdlLocation() {
+        if (RELEVEWS_EXCEPTION!= null) {
+            throw RELEVEWS_EXCEPTION;
+        }
+        return RELEVEWS_WSDL_LOCATION;
+    }
 
 }
