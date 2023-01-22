@@ -21,7 +21,7 @@ public class Operation {
 
     @Override
     public String toString() {
-        return "\tpojo.Operation<" +
+        return "\tOperation<" +
                 "type=" + type +
                 ", date=" + date.toLocaleString() +
                 ", montant=" + montant +

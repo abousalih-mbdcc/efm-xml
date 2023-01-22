@@ -23,7 +23,7 @@ public class Releve {
                 "\trib='" + rib + "\n" +
                 "\tdate Releve=" + dateReleve.toLocaleString() +"\n" +
                 "\tsolde=" + solde+"\n" +
-                "\nLes pojo.Operations:" ;
+                "\nLes Operations:" ;
     }
 
     public Releve() {
